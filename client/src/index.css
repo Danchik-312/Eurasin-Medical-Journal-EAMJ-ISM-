@@ -1,0 +1,36 @@
+*{padding: 0; margin: 0; border: 0;}
+*,*:before,*:after{box-sizing: border-box;}
+a:focus,a:active{outline: none;}
+nav,footer,header{display: block;}
+html,body{height: 100%; width: 100%; font-size: 14px; line-height: 16px;font-family: "noto sans", sans-serif;}
+input,button,textarea{font-family: inherit;}
+button{cursor: pointer;}
+a,a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none; margin: 0; padding: 0}
+p{margin: 0}
+img{vertical-align: middle;}
+h1,h2,h3,h4,h5,h6{font-size: inherit; font-weight: inherit; margin: 0}
+.wrapper{min-height: 100%;overflow: hidden;display: flex;flex-direction: column; justify-content: center}
+._container{max-width: 1160px;margin: 0 auto;padding: 0 15px; box-sizing: border-box}
+.page{flex: 1 1 auto;}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.flex {
+    flex: 1;
+    width: 100%;
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.current{
+    color: rgba(0, 0, 0, 0.54);
+}
+
+

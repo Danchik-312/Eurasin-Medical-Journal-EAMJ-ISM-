@@ -1,0 +1,77 @@
+.contact{
+    padding: 0 30px 90px;
+    width: 100%;
+}
+
+.contact__nav{
+    display: inline-block;
+
+}
+
+.nav__menu{
+    margin-bottom: 30px;
+    padding: 5px 0;
+    line-height: 20px;
+    font-size: 13px;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+}
+
+.nav__menu li{
+    color: rgba(0, 0, 0, 0.54);
+}
+
+.nav__link{
+    text-decoration: none;
+    color: #007ab2;
+}
+
+.nav__link:hover{
+    color: #009de5;
+}
+
+.separator{
+    padding: 0 .5em;
+}
+
+.contact__title{
+    margin: 0 0 20px;
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: 700;
+}
+
+.contact__content{}
+
+.content__text{
+    margin: 20px 0;
+    line-height: 25px;
+}
+
+.content__section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.section__principal{
+    padding-right: 20px;
+    width: 50%;
+}
+
+.section__support{
+    width: 50%;
+}
+
+.section__subtitle{
+    margin: 40px 0 20px;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 700;
+}
+
+.content__section p {
+    margin: 5px 0;
+}
+

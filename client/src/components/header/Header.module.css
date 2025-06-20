@@ -1,0 +1,40 @@
+.header{
+    background-color: #CDCFD1;
+}
+
+.header__menu{
+    display: flex;
+    height: 200px;
+}
+
+.menu__list{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.menu__link{
+    font-family: "noto sans", sans-serif;
+    font-size: 14px;
+    padding: 10px 0 8px;
+    border-bottom: 2px solid transparent;
+    color: rgba(0, 0, 0, 0.84)!important;
+    text-decoration: none;
+}
+
+.menu__link:hover{
+    color: rgba(0, 0, 0, 0.84)!important;
+    outline: 0;
+    border-color: rgba(0, 0, 0, 0.84);
+}
+
+.menu__link:visited{
+    color: rgba(0, 0, 0, 0.84)!important
+}
+
+.menu__item:not(:last-child){
+    margin-right: 1em;
+    padding: 10px 0 8px;
+}

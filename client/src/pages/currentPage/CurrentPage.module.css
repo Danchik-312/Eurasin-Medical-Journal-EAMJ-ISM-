@@ -1,0 +1,163 @@
+.current{
+    padding: 0 30px 90px;
+    width: 100%;
+}
+
+.current__nav{
+    display: inline-block;
+
+}
+
+.nav__menu{
+    margin-bottom: 30px;
+    padding: 5px 0;
+    line-height: 20px;
+    font-size: 13px;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+}
+
+.nav__menu li{
+    color: rgba(0, 0, 0, 0.54);
+}
+
+.nav__link{
+    text-decoration: none;
+    color: #007ab2;
+}
+
+.nav__link:hover{
+    color: #009de5;
+}
+
+.separator{
+    padding: 0 .5em;
+}
+
+.current__title{
+    margin: 40px 0 20px;
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: 700;
+}
+
+.current__heading {
+
+}
+
+.heading__images {
+    margin-right: 30px;
+    margin-bottom: 30px;
+    width: 25%;
+    float: left;
+}
+
+.heading__content {
+
+}
+
+.heading__subtitle {
+    line-height: 25px;
+    margin: 20px 0;
+    font-weight: 700;
+}
+
+.heading__text {
+    line-height: 25px;
+    margin: 20px 0;
+}
+
+.heading__published {
+
+}
+
+
+.published__label {
+    font-weight: 700;
+}
+
+.published__value {
+
+}
+
+.current__section {
+    margin-top: 60px;
+}
+
+.section__subtitle {
+    padding: 0 15px;
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.54);
+    margin: 40px 0 20px;
+}
+
+.section__table {
+
+}
+
+.table__item {
+    margin-bottom: 30px;
+}
+
+.item__link {
+
+}
+
+.link__title {
+    line-height: 20px;
+    font-weight: 700;
+    color: #007ab2;
+}
+
+.link__title:hover {
+    color: #009de5;
+}
+
+.link__subtitle {
+    padding-top: 5px;
+    line-height: 20px;
+    font-size: 13px;
+    position: relative;
+}
+
+.subtitle__auth {
+    padding-right: 5em;
+
+}
+
+.subtitle__page {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: rgba(0, 0, 0, 0.54);
+}
+
+.link__down {
+    margin-top: 10px;
+    display: inline-block;
+    padding: 0 1em;
+    background: #fff;
+    border: 1px solid #007ab2;
+    border-radius: 3px;
+    font-size: 13px;
+    line-height: 28px;
+    color: #007ab2;
+    text-decoration: none;
+}
+
+.link__down:before {
+    display: inline-block;
+    font: normal normal normal 14px / 1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    transform: translate(0, 0);
+    content: "\f0f6";
+    margin-right: 0.25em;
+}
+
+.link__down:hover {
+    background: #007ab2;
+    color: #fff;
+}

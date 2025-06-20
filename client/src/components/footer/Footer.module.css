@@ -1,0 +1,16 @@
+.footer {
+    background-color: #CDCFD1;
+    width: 100%;
+}
+
+.footer__content{
+    padding: 30px;
+    text-align: left;
+}
+
+.footer__content p{
+    margin: 14px 0;
+    font-size: 14px;
+    font-family: "noto sans", sans-serif;
+    line-height: 20px;
+}

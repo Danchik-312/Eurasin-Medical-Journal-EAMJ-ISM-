@@ -1,0 +1,57 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Пользователи для подачи статей
+model User {
+  id        Int       @id @default(autoincrement())
+  email     String    @unique
+  password  String
+  articles  Article[]
+  createdAt DateTime  @default(now())
+}
+
+// Администраторы (только для админ-панели)
+model Admin {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+}
+
+// Журналы
+model Journal {
+  id        Int       @id @default(autoincrement())
+  issue     Int       @unique // Уникальный номер журнала
+  year      Int
+  createdAt DateTime  @default(now())
+  articles  Article[] // Статьи в журнале
+
+  @@unique([issue, year]) // Комбинированная уникальность
+}
+
+// Статьи
+model Article {
+  id          Int       @id @default(autoincrement())
+  title       String    // Название статьи
+  authors     String    // Авторы (текстовое поле)
+  description String    // Описание статьи
+  pages       String    // Номера страниц (например, "10-15")
+  fileUrl     String    // Путь к файлу
+
+  // Связь с журналом (опционально - статья может быть еще не опубликована)
+  journalId   Int?
+  journal     Journal?  @relation(fields: [journalId], references: [id])
+
+  // Связь с пользователем, подавшим статью
+  userId      Int?
+  user        User?     @relation(fields: [userId], references: [id])
+
+  status      String    @default("pending") // Статус: pending, published
+  createdAt   DateTime  @default(now())
+}

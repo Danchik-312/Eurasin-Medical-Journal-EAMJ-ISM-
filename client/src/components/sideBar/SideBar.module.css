@@ -1,0 +1,43 @@
+.sidebar {
+    width: 300px;
+    float: right;
+}
+
+.sidebar__info {
+    padding: 30px;
+}
+
+.title {
+    margin-top: 10px;
+    font-family: "noto sans", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    color: rgba(0, 0, 0, 0.54);
+}
+
+.content {}
+
+.menu__list {
+
+}
+
+.menu__item {
+    line-height: 20px;
+    padding: 5px 0;
+}
+
+.menu__link {
+    font-family: "noto sans", sans-serif;
+    font-size: 13px;
+    text-decoration: none;
+    color: #007ab2;
+}
+
+.menu__link:hover {
+    color: #009de5;
+}
+
+.sidebar__lang {
+    padding: 30px;
+}
