@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import MainPage from "./pages/mainPage/MainPage";
@@ -17,14 +17,43 @@ import SideBar from "./components/sideBar/SideBar";
 import ReadersPage from "./pages/readersPage/ReadersPage";
 import AuthorsPage from "./pages/authorsPage/AuthorsPage";
 import LibrarianPage from "./pages/librarianPage/LibrarianPage";
+import AdminLoginPage from "./pages/admin/adminLoginPage/AdminLoginPage";
+import AdminMainPage from "./pages/admin/adminMainPage/AdminMainPage";
+import AdminRoute from "./components/AdminRoute"; // Убедитесь, что путь правильный
 
-function App() {
-  return (
-    <div className="App">
-      <BrowserRouter>
-          <Header />
-          <div  className="_container flex">
-            <Routes>
+// Основной макет для публичных страниц
+const PublicLayout = () => {
+    return (
+        <>
+            <Header />
+            <div className="_container flex">
+                <div className="main-content">
+                    <Outlet /> {/* Здесь рендерятся публичные страницы */}
+                </div>
+                <div>
+                    <SideBar />
+                </div>
+            </div>
+            <Footer />
+        </>
+    );
+};
+
+// Макет для админских страниц
+const AdminLayout = () => {
+    return (
+        <div className="admin-layout">
+            <Outlet /> {/* Здесь рендерятся админские страницы */}
+        </div>
+    );
+};
+
+// Компонент для обертки роутов
+const AppRoutes = () => {
+    return (
+        <Routes>
+            {/* Публичные страницы */}
+            <Route element={<PublicLayout />}>
                 <Route path="/" element={<MainPage />} />
                 <Route path="/announcements" element={<AnnouncementsPage />} />
                 <Route path="/archives" element={<ArchivesPage />} />
@@ -38,16 +67,33 @@ function App() {
                 <Route path="/readers" element={<ReadersPage />} />
                 <Route path="/authors" element={<AuthorsPage />} />
                 <Route path="/librarian" element={<LibrarianPage />} />
-                <Route path='*' element={<NotFoundPage/>} />
-            </Routes>
-          <div>
-               <SideBar />
-          </div>
-          </div>
-          <Footer />
-      </BrowserRouter>
-    </div>
-  );
+            </Route>
+
+            {/* Админские страницы */}
+            <Route element={<AdminLayout />}>
+                <Route path="/admin/login" element={<AdminLoginPage />} />
+
+                <Route path="/admin" element={<AdminRoute />}>
+                    <Route index element={<AdminMainPage />} />
+                    <Route path="main" element={<AdminMainPage />} />
+                    {/* Добавьте другие защищенные админские роуты здесь */}
+                </Route>
+            </Route>
+
+            {/* Страница 404 */}
+            <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+    );
+};
+
+function App() {
+    return (
+        <div className="App">
+            <BrowserRouter>
+                <AppRoutes />
+            </BrowserRouter>
+        </div>
+    );
 }
 
 export default App;

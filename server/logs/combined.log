@@ -1,0 +1,364 @@
+2025-06-20 23:03:33 [[32minfo[39m]: Server started on port 3001
+2025-06-20 23:04:00 [[32minfo[39m]: Server started on port 3001
+2025-06-20 23:04:08 [[32minfo[39m]: Server started on port 3001
+2025-06-20 23:05:14 [[32minfo[39m]: Server started on port 3001
+2025-06-20 23:09:35 [[32minfo[39m]: Server started on port 3001
+2025-06-20 23:10:43 [[32minfo[39m]: Server started on port 3001
+2025-06-20 23:11:06 [[32minfo[39m]: Server started on port 3001
+2025-06-20 23:13:22 [[32minfo[39m]: Server started on port 3001
+2025-06-20 23:13:30 [[32minfo[39m]: GET /
+2025-06-20 23:13:32 [[32minfo[39m]: GET /favicon.ico
+2025-06-20 23:13:32 [[31merror[39m]: Error: Resource not found: GET /favicon.ico
+    at notFoundHandler (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\utils\errorHandler.js:36:10)
+    at Layer.handleRequest (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:342:13)
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:297:9
+    at processParams (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:582:12)
+    at next (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:291:5)
+    at Layer.handleRequest (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\lib\layer.js:147:12)
+    at trimPrefix (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:342:13)
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:297:9
+    at processParams (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:582:12)
+2025-06-20 23:13:42 [[32minfo[39m]: GET /
+2025-06-20 23:13:43 [[32minfo[39m]: GET /
+2025-06-20 23:13:43 [[32minfo[39m]: GET /
+2025-06-20 23:13:44 [[32minfo[39m]: GET /
+2025-06-20 23:13:44 [[32minfo[39m]: GET /
+2025-06-20 23:13:44 [[32minfo[39m]: GET /
+2025-06-20 23:13:44 [[32minfo[39m]: GET /
+2025-06-20 23:13:45 [[32minfo[39m]: GET /
+2025-06-20 23:13:45 [[32minfo[39m]: GET /
+2025-06-20 23:13:46 [[32minfo[39m]: GET /
+2025-06-20 23:13:46 [[32minfo[39m]: GET /
+2025-06-20 23:13:46 [[32minfo[39m]: GET /
+2025-06-20 23:13:49 [[32minfo[39m]: GET /
+2025-06-20 23:13:51 [[32minfo[39m]: GET /favicon.ico
+2025-06-20 23:13:51 [[31merror[39m]: Error: Resource not found: GET /favicon.ico
+    at notFoundHandler (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\utils\errorHandler.js:36:10)
+    at Layer.handleRequest (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:342:13)
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:297:9
+    at processParams (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:582:12)
+    at next (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:291:5)
+    at Layer.handleRequest (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\lib\layer.js:147:12)
+    at trimPrefix (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:342:13)
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:297:9
+    at processParams (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:582:12)
+2025-06-20 23:14:26 [[32minfo[39m]: GET /
+2025-06-20 23:23:45 [[32minfo[39m]: GET /
+2025-06-21 13:44:40 [[32minfo[39m]: Server started on port 3001
+2025-06-21 13:44:58 [[32minfo[39m]: GET /
+2025-06-21 13:45:08 [[32minfo[39m]: GET /favicon.ico
+2025-06-21 13:45:08 [[31merror[39m]: Error: Resource not found: GET /favicon.ico
+    at notFoundHandler (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\utils\errorHandler.js:36:10)
+    at Layer.handleRequest (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:342:13)
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:297:9
+    at processParams (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:582:12)
+    at next (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:291:5)
+    at Layer.handleRequest (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\lib\layer.js:147:12)
+    at trimPrefix (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:342:13)
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:297:9
+    at processParams (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:582:12)
+2025-06-21 13:45:08 [[32minfo[39m]: GET /logo192.png
+2025-06-21 13:45:08 [[31merror[39m]: Error: Resource not found: GET /logo192.png
+    at notFoundHandler (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\utils\errorHandler.js:36:10)
+    at Layer.handleRequest (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:342:13)
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:297:9
+    at processParams (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:582:12)
+    at next (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:291:5)
+    at Layer.handleRequest (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\lib\layer.js:147:12)
+    at trimPrefix (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:342:13)
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:297:9
+    at processParams (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:582:12)
+2025-06-21 13:45:08 [[32minfo[39m]: GET /logo512.png
+2025-06-21 13:45:08 [[31merror[39m]: Error: Resource not found: GET /logo512.png
+    at notFoundHandler (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\utils\errorHandler.js:36:10)
+    at Layer.handleRequest (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:342:13)
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:297:9
+    at processParams (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:582:12)
+    at next (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:291:5)
+    at Layer.handleRequest (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\lib\layer.js:147:12)
+    at trimPrefix (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:342:13)
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:297:9
+    at processParams (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:582:12)
+2025-06-21 13:45:15 [[32minfo[39m]: GET /
+2025-06-21 13:45:16 [[32minfo[39m]: GET /favicon.ico
+2025-06-21 13:45:16 [[31merror[39m]: Error: Resource not found: GET /favicon.ico
+    at notFoundHandler (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\utils\errorHandler.js:36:10)
+    at Layer.handleRequest (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:342:13)
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:297:9
+    at processParams (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:582:12)
+    at next (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:291:5)
+    at Layer.handleRequest (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\lib\layer.js:147:12)
+    at trimPrefix (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:342:13)
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:297:9
+    at processParams (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:582:12)
+2025-06-21 13:45:26 [[32minfo[39m]: GET /favicon.ico
+2025-06-21 13:45:26 [[31merror[39m]: Error: Resource not found: GET /favicon.ico
+    at notFoundHandler (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\utils\errorHandler.js:36:10)
+    at Layer.handleRequest (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:342:13)
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:297:9
+    at processParams (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:582:12)
+    at next (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:291:5)
+    at Layer.handleRequest (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\lib\layer.js:147:12)
+    at trimPrefix (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:342:13)
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:297:9
+    at processParams (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:582:12)
+2025-06-21 13:45:26 [[32minfo[39m]: GET /logo192.png
+2025-06-21 13:45:26 [[31merror[39m]: Error: Resource not found: GET /logo192.png
+    at notFoundHandler (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\utils\errorHandler.js:36:10)
+    at Layer.handleRequest (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:342:13)
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:297:9
+    at processParams (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:582:12)
+    at next (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:291:5)
+    at Layer.handleRequest (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\lib\layer.js:147:12)
+    at trimPrefix (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:342:13)
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:297:9
+    at processParams (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:582:12)
+2025-06-21 13:45:26 [[32minfo[39m]: GET /logo512.png
+2025-06-21 13:45:26 [[31merror[39m]: Error: Resource not found: GET /logo512.png
+    at notFoundHandler (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\utils\errorHandler.js:36:10)
+    at Layer.handleRequest (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:342:13)
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:297:9
+    at processParams (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:582:12)
+    at next (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:291:5)
+    at Layer.handleRequest (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\lib\layer.js:147:12)
+    at trimPrefix (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:342:13)
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:297:9
+    at processParams (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:582:12)
+2025-06-21 14:12:41 [[32minfo[39m]: POST /admin/login
+2025-06-21 14:12:42 [[31merror[39m]: Error: Админ не найден
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\routes\admin.js:57:19
+2025-06-21 14:12:52 [[32minfo[39m]: POST /admin/login
+2025-06-21 14:12:52 [[31merror[39m]: Error: Админ не найден
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\routes\admin.js:57:19
+2025-06-21 14:12:54 [[32minfo[39m]: POST /admin/login
+2025-06-21 14:12:54 [[31merror[39m]: Error: Админ не найден
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\routes\admin.js:57:19
+2025-06-21 14:13:50 [[32minfo[39m]: POST /admin/login
+2025-06-21 14:13:50 [[31merror[39m]: Error: Неверный пароль
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\routes\admin.js:62:19
+2025-06-21 14:13:51 [[32minfo[39m]: POST /admin/login
+2025-06-21 14:13:51 [[31merror[39m]: Error: Неверный пароль
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\routes\admin.js:62:19
+2025-06-21 14:13:51 [[32minfo[39m]: POST /admin/login
+2025-06-21 14:13:51 [[31merror[39m]: Error: Неверный пароль
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\routes\admin.js:62:19
+2025-06-21 14:13:52 [[32minfo[39m]: GET /favicon.ico
+2025-06-21 14:13:52 [[31merror[39m]: Error: Resource not found: GET /favicon.ico
+    at notFoundHandler (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\utils\errorHandler.js:36:10)
+    at Layer.handleRequest (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:342:13)
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:297:9
+    at processParams (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:582:12)
+    at next (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:291:5)
+    at Layer.handleRequest (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\lib\layer.js:147:12)
+    at trimPrefix (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:342:13)
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:297:9
+    at processParams (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:582:12)
+2025-06-21 14:13:52 [[32minfo[39m]: GET /logo192.png
+2025-06-21 14:13:52 [[31merror[39m]: Error: Resource not found: GET /logo192.png
+    at notFoundHandler (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\utils\errorHandler.js:36:10)
+    at Layer.handleRequest (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:342:13)
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:297:9
+    at processParams (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:582:12)
+    at next (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:291:5)
+    at Layer.handleRequest (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\lib\layer.js:147:12)
+    at trimPrefix (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:342:13)
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:297:9
+    at processParams (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:582:12)
+2025-06-21 14:13:52 [[32minfo[39m]: GET /logo512.png
+2025-06-21 14:13:52 [[31merror[39m]: Error: Resource not found: GET /logo512.png
+    at notFoundHandler (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\utils\errorHandler.js:36:10)
+    at Layer.handleRequest (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:342:13)
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:297:9
+    at processParams (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:582:12)
+    at next (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:291:5)
+    at Layer.handleRequest (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\lib\layer.js:147:12)
+    at trimPrefix (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:342:13)
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:297:9
+    at processParams (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:582:12)
+2025-06-21 14:14:01 [[32minfo[39m]: POST /admin/login
+2025-06-21 14:14:01 [[31merror[39m]: Error: Неверный пароль
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\routes\admin.js:62:19
+2025-06-21 14:14:05 [[32minfo[39m]: POST /admin/login
+2025-06-21 14:14:05 [[31merror[39m]: Error: Неверный пароль
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\routes\admin.js:62:19
+2025-06-21 14:14:05 [[32minfo[39m]: POST /admin/login
+2025-06-21 14:14:05 [[31merror[39m]: Error: Неверный пароль
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\routes\admin.js:62:19
+2025-06-21 14:14:47 [[32minfo[39m]: POST /admin/login
+2025-06-21 14:14:47 [[31merror[39m]: Error: Неверный пароль
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\routes\admin.js:62:19
+2025-06-21 14:14:48 [[32minfo[39m]: POST /admin/login
+2025-06-21 14:14:48 [[31merror[39m]: Error: Неверный пароль
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\routes\admin.js:62:19
+2025-06-21 14:14:48 [[32minfo[39m]: POST /admin/login
+2025-06-21 14:14:48 [[31merror[39m]: Error: Неверный пароль
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\routes\admin.js:62:19
+2025-06-21 14:14:49 [[32minfo[39m]: POST /admin/login
+2025-06-21 14:14:49 [[31merror[39m]: Error: Неверный пароль
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\routes\admin.js:62:19
+2025-06-21 14:14:49 [[32minfo[39m]: POST /admin/login
+2025-06-21 14:14:49 [[31merror[39m]: Error: Неверный пароль
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\routes\admin.js:62:19
+2025-06-21 14:14:57 [[32minfo[39m]: POST /admin/login
+2025-06-21 14:14:57 [[31merror[39m]: Error: Неверный пароль
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\routes\admin.js:62:19
+2025-06-21 14:17:01 [[32minfo[39m]: POST /admin/login
+2025-06-21 14:17:01 [[31merror[39m]: Error: Неверный пароль
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\routes\admin.js:62:19
+2025-06-21 14:17:01 [[32minfo[39m]: POST /admin/login
+2025-06-21 14:17:01 [[31merror[39m]: Error: Неверный пароль
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\routes\admin.js:62:19
+2025-06-21 14:17:01 [[32minfo[39m]: POST /admin/login
+2025-06-21 14:17:01 [[31merror[39m]: Error: Неверный пароль
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\routes\admin.js:62:19
+2025-06-21 14:17:12 [[32minfo[39m]: POST /admin/login
+2025-06-21 14:17:12 [[31merror[39m]: Error: Неверный пароль
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\routes\admin.js:62:19
+2025-06-21 14:17:13 [[32minfo[39m]: POST /admin/login
+2025-06-21 14:17:13 [[31merror[39m]: Error: Неверный пароль
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\routes\admin.js:62:19
+2025-06-21 14:21:45 [[32minfo[39m]: POST /admin/login
+2025-06-21 14:21:45 [[31merror[39m]: Error: Неверный пароль
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\routes\admin.js:62:19
+2025-06-21 14:21:57 [[32minfo[39m]: GET /admin/login
+2025-06-21 14:21:57 [[31merror[39m]: Error: Resource not found: GET /admin/login
+    at notFoundHandler (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\utils\errorHandler.js:36:10)
+    at Layer.handleRequest (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:342:13)
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:297:9
+    at processParams (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:582:12)
+    at next (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:291:5)
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:688:15
+    at next (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:276:14)
+    at Function.handle (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:186:3)
+    at router (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:60:12)
+2025-06-21 14:21:58 [[32minfo[39m]: GET /favicon.ico
+2025-06-21 14:21:58 [[31merror[39m]: Error: Resource not found: GET /favicon.ico
+    at notFoundHandler (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\utils\errorHandler.js:36:10)
+    at Layer.handleRequest (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:342:13)
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:297:9
+    at processParams (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:582:12)
+    at next (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:291:5)
+    at Layer.handleRequest (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\lib\layer.js:147:12)
+    at trimPrefix (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:342:13)
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:297:9
+    at processParams (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:582:12)
+2025-06-21 14:26:22 [[32minfo[39m]: POST /admin/login
+2025-06-21 14:26:22 [[31merror[39m]: Error: Неверный пароль
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\routes\admin.js:62:19
+2025-06-21 17:44:38 [[32minfo[39m]: GET /admin/login
+2025-06-21 17:44:38 [[31merror[39m]: Error: Resource not found: GET /admin/login
+    at notFoundHandler (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\utils\errorHandler.js:36:10)
+    at Layer.handleRequest (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:342:13)
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:297:9
+    at processParams (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:582:12)
+    at next (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:291:5)
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:688:15
+    at next (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:276:14)
+    at Function.handle (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:186:3)
+    at router (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:60:12)
+2025-06-21 17:44:39 [[32minfo[39m]: GET /admin/login
+2025-06-21 17:44:39 [[31merror[39m]: Error: Resource not found: GET /admin/login
+    at notFoundHandler (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\utils\errorHandler.js:36:10)
+    at Layer.handleRequest (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:342:13)
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:297:9
+    at processParams (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:582:12)
+    at next (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:291:5)
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:688:15
+    at next (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:276:14)
+    at Function.handle (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:186:3)
+    at router (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:60:12)
+2025-06-21 17:44:39 [[32minfo[39m]: GET /admin/login
+2025-06-21 17:44:39 [[31merror[39m]: Error: Resource not found: GET /admin/login
+    at notFoundHandler (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\utils\errorHandler.js:36:10)
+    at Layer.handleRequest (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:342:13)
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:297:9
+    at processParams (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:582:12)
+    at next (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:291:5)
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:688:15
+    at next (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:276:14)
+    at Function.handle (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:186:3)
+    at router (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:60:12)
+2025-06-21 17:44:40 [[32minfo[39m]: GET /
+2025-06-21 17:44:40 [[32minfo[39m]: GET /
+2025-06-21 17:44:40 [[32minfo[39m]: GET /
+2025-06-21 18:28:27 [[32minfo[39m]: Server started on port 3001
+2025-06-21 18:28:32 [[32minfo[39m]: GET /
+2025-06-21 18:28:33 [[32minfo[39m]: GET /favicon.ico
+2025-06-21 18:28:33 [[31merror[39m]: Error: Resource not found: GET /favicon.ico
+    at notFoundHandler (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\utils\errorHandler.js:36:10)
+    at Layer.handleRequest (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:342:13)
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:297:9
+    at processParams (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:582:12)
+    at next (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:291:5)
+    at Layer.handleRequest (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\lib\layer.js:147:12)
+    at trimPrefix (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:342:13)
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:297:9
+    at processParams (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:582:12)
+2025-06-21 18:38:33 [[32minfo[39m]: Server started on port 3001
+2025-06-21 18:38:55 [[32minfo[39m]: GET /
+2025-06-21 18:38:55 [[32minfo[39m]: GET /favicon.ico
+2025-06-21 18:38:55 [[31merror[39m]: Error: Resource not found: GET /favicon.ico
+    at notFoundHandler (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\utils\errorHandler.js:36:10)
+    at Layer.handleRequest (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:342:13)
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:297:9
+    at processParams (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:582:12)
+    at next (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:291:5)
+    at Layer.handleRequest (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\lib\layer.js:147:12)
+    at trimPrefix (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:342:13)
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:297:9
+    at processParams (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:582:12)
+2025-06-21 18:39:15 [[32minfo[39m]: Server started on port 3001
+2025-06-21 18:39:19 [[32minfo[39m]: GET /
+2025-06-21 18:39:20 [[32minfo[39m]: GET /
+2025-06-21 18:39:20 [[32minfo[39m]: GET /
+2025-06-21 18:39:20 [[32minfo[39m]: GET /
+2025-06-21 18:39:20 [[32minfo[39m]: GET /
+2025-06-21 18:39:20 [[32minfo[39m]: GET /
+2025-06-21 18:39:21 [[32minfo[39m]: GET /
+2025-06-21 18:41:05 [[32minfo[39m]: Server started on port 3001
+2025-06-21 18:41:10 [[32minfo[39m]: Server started on port 3001
+2025-06-21 18:41:31 [[32minfo[39m]: Server started on port 3001
+2025-06-21 18:46:05 [[32minfo[39m]: Server started on port 3001
+2025-06-21 18:46:12 [[32minfo[39m]: GET /
+2025-06-21 18:46:12 [[32minfo[39m]: GET /favicon.ico
+2025-06-21 18:46:12 [[31merror[39m]: Error: Resource not found: GET /favicon.ico
+    at notFoundHandler (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\utils\errorHandler.js:36:10)
+    at Layer.handleRequest (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:342:13)
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:297:9
+    at processParams (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:582:12)
+    at next (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:291:5)
+    at Layer.handleRequest (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\lib\layer.js:147:12)
+    at trimPrefix (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:342:13)
+    at C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:297:9
+    at processParams (C:\Users\User\Desktop\Work\Eurasian Medical Journal\server\node_modules\router\index.js:582:12)
+2025-06-21 18:46:12 [[32minfo[39m]: GET /
+2025-06-21 18:46:44 [[32minfo[39m]: Server started on port 3001
+2025-06-21 19:05:51 [[32minfo[39m]: Server started on port 3001
+2025-06-21 19:05:56 [[32minfo[39m]: GET /
+2025-06-21 19:14:15 [[32minfo[39m]: Server started on port 3001
+2025-06-21 19:14:54 [[32minfo[39m]: Server started on port 3001
+2025-06-21 19:18:30 [[32minfo[39m]: Server started on port 3001
+2025-06-21 19:29:18 [[32minfo[39m]: Server started on port 3001
+2025-06-21 19:29:23 [[32minfo[39m]: Server started on port 3001
+2025-06-21 19:29:23 [[32minfo[39m]: Server started on port 3001
+2025-06-21 19:29:31 [[32minfo[39m]: Server started on port 3001
