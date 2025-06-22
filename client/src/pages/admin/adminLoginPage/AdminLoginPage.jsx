@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import styles from './AdminLoginPage.module.css'; // импорт CSS-модуля
+import styles from './AdminLoginPage.module.css';
+import { AuthContext } from '../../../contexts/AuthContext';
 
 function AdminLoginPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const navigate = useNavigate();
+
+    const { login } = useContext(AuthContext); // достаем функцию login из контекста
 
     const handleSubmit = async e => {
         e.preventDefault();
@@ -23,10 +26,10 @@ function AdminLoginPage() {
                 setError(data.error || 'Ошибка входа');
                 return;
             }
-            localStorage.setItem('token', data.token);
-            navigate('/admin');  // Перейти в админку
-            setEmail('');        // Очистить email
-            setPassword('');     // Очистить пароль
+            login(data.token);  // вызываем login из контекста, он сохранит токен в localStorage и в состоянии
+            navigate('/admin');  // переходим в админку
+            setEmail('');
+            setPassword('');
         } catch {
             setError('Ошибка сети');
         }

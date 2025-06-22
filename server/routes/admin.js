@@ -83,18 +83,27 @@ router.post('/login', async (req, res) => {
 
 /* ------------------ ДОБАВЛЕНИЕ СТАТЬИ АДМИНОМ ------------------ */
 router.post('/articles', adminAuth, upload.single('file'), async (req, res) => {
-    const { title, author, pages, journalId } = req.body;
+    const { title, authors, pages, journalId, description } = req.body;
     const fileUrl = req.file ? `/uploads/${req.file.filename}` : null;
+
+    if (!title || !authors || !pages || !journalId) {
+        return res.status(400).json({ error: 'Укажите title, authors, pages и journalId' });
+    }
 
     try {
         const article = await prisma.article.create({
             data: {
                 title,
-                author,
+                authors,
                 pages,
                 fileUrl,
                 status: 'approved',
-                journal: { connect: { id: Number(journalId) } },
+                description: description || '', // 💡 чтобы не было ошибки
+                journal: {
+                    connect: {
+                        id: Number(journalId),
+                    },
+                },
             },
         });
         res.status(201).json(article);
@@ -103,6 +112,7 @@ router.post('/articles', adminAuth, upload.single('file'), async (req, res) => {
         res.status(500).json({ error: 'Ошибка при добавлении статьи' });
     }
 });
+
 
 /* ------------------ ПОЛУЧИТЬ ВСЕ ОЖИДАЮЩИЕ СТАТЬИ ------------------ */
 router.get('/articles/pending', adminAuth, async (req, res) => {
@@ -113,6 +123,21 @@ router.get('/articles/pending', adminAuth, async (req, res) => {
                 user: true,
                 journal: true,
             },
+        });
+        res.json(articles);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Ошибка при получении статей' });
+    }
+});
+
+/* ------------------ ПОЛУЧИТЬ ВСЕ УТВЕРЖДЁННЫЕ СТАТЬИ ------------------ */
+router.get('/articles', adminAuth, async (req, res) => {
+    try {
+        const articles = await prisma.article.findMany({
+            where: { status: 'approved' },
+            include: { journal: true },
+            orderBy: { createdAt: 'desc' },
         });
         res.json(articles);
     } catch (err) {
@@ -133,5 +158,49 @@ router.post('/articles/:id/approve', adminAuth, async (req, res) => {
         res.status(500).json({ error: 'Ошибка при обновлении статьи' });
     }
 });
+
+/* ------------------ ПОЛУЧИТЬ ВСЕ ЖУРНАЛЫ ------------------ */
+router.get('/journals', adminAuth, async (req, res) => {
+    try {
+        const journals = await prisma.journal.findMany({
+            include: {
+                articles: true,
+            },
+            orderBy: {
+                year: 'desc',
+            },
+        });
+
+        res.json(journals);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Ошибка при получении журналов' });
+    }
+});
+
+router.post('/journals', adminAuth, async (req, res) => {
+    const { issue, year, month } = req.body;
+
+    // Простая валидация
+    if (!issue || !year || !month || month < 1 || month > 12) {
+        return res.status(400).json({ error: 'Укажите issue, year и корректный month (1-12)' });
+    }
+
+    try {
+        const newJournal = await prisma.journal.create({
+            data: {
+                issue: Number(issue),
+                year: Number(year),
+                month: Number(month),
+            },
+        });
+
+        res.status(201).json(newJournal);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Ошибка при добавлении журнала' });
+    }
+});
+
 
 module.exports = router;

@@ -30,20 +30,26 @@ const upload = multer({ storage });
 // Статика для загрузок
 app.use('/uploads', express.static(uploadDir));
 
-// Подключение роутов
+// Подключение роутов для админки
 const adminRoutes = require('./routes/admin');
 app.use('/admin', adminRoutes);
 
-// Основные роуты
-app.post('/submit-article', upload.single('file'), async (req, res) => {
-    // Ваш код создания статьи
-});
-
+// Публичный маршрут для получения всех одобренных статей
 app.get('/articles', async (req, res) => {
-    // Ваш код получения статей
+    try {
+        const articles = await prisma.article.findMany({
+            where: { status: 'approved' },
+            include: { journal: true },
+            orderBy: { createdAt: 'desc' },
+        });
+        res.json(articles);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Ошибка при получении статей' });
+    }
 });
 
-// Корневой роут - ДОБАВЛЕНО
+// Пример корневого роута
 app.get('/', (req, res) => {
     res.json({
         status: "success",
@@ -57,7 +63,7 @@ app.get('/', (req, res) => {
     });
 });
 
-// Обработка 404 - ДОБАВЛЕНО
+// Обработка 404
 app.use((req, res) => {
     res.status(404).json({
         error: "Not found",
@@ -69,29 +75,3 @@ app.use((req, res) => {
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
 });
-
-app.get('/', (req, res) => {
-    res.json({
-        status: "success",
-        message: "Backend server is running",
-        apiEndpoints: {
-            admin: {
-                register: "POST /admin/register",
-                login: "POST /admin/login",
-                submitArticle: "POST /admin/articles",
-                pendingArticles: "GET /admin/articles/pending",
-                approveArticle: "POST /admin/articles/:id/approve"
-            },
-            user: {
-                submitArticle: "POST /submit-article"
-            },
-            public: {
-                getArticles: "GET /articles",
-                getJournal: "GET /journals",
-                downloadFile: "GET /uploads/:filename"
-            }
-        }
-    });
-});
-
-// ... продолжение кода (обработка 404, запуск сервера) ...

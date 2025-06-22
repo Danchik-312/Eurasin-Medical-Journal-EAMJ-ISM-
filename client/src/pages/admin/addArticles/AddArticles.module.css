@@ -1,0 +1,61 @@
+.formContainer {
+    max-width: 480px;
+    margin: 20px auto;
+    padding: 25px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.formTitle {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    color: #222;
+    text-align: center;
+}
+
+.formGroup {
+    margin-bottom: 18px;
+}
+
+.label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #444;
+}
+
+.input,
+.select {
+    width: 100%;
+    padding: 9px 12px;
+    font-size: 1rem;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    outline-offset: 2px;
+    outline-color: transparent;
+    transition: outline-color 0.2s ease-in-out;
+}
+
+.input:focus,
+.select:focus {
+    outline-color: #1e90ff;
+    border-color: #1e90ff;
+}
+
+.button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.15rem;
+    background-color: #1e90ff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #0c75d9;
+}
