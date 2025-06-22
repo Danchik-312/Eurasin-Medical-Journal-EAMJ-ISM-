@@ -17,37 +17,58 @@ import SideBar from "./components/sideBar/SideBar";
 import ReadersPage from "./pages/readersPage/ReadersPage";
 import AuthorsPage from "./pages/authorsPage/AuthorsPage";
 import LibrarianPage from "./pages/librarianPage/LibrarianPage";
+import AdminMainPage from "./pages/adminMainPage/AdminMainPage";
+import AdminLoginPage from "./pages/adminLoginPage/AdminLoginPage";
+import ProtectedRoute from "./components/ProtectedRoute";
+
+function PublicLayout({ children }) {
+    return (
+        <>
+            <Header />
+            <div className="_container flex">
+                {children}
+                <SideBar />
+            </div>
+            <Footer />
+        </>
+    );
+}
 
 function App() {
-  return (
-    <div className="App">
-      <BrowserRouter>
-          <Header />
-          <div  className="_container flex">
+    return (
+        <BrowserRouter>
             <Routes>
-                <Route path="/" element={<MainPage />} />
-                <Route path="/announcements" element={<AnnouncementsPage />} />
-                <Route path="/archives" element={<ArchivesPage />} />
-                <Route path="/contact" element={<ContactPage />} />
-                <Route path="/current" element={<CurrentPage />} />
-                <Route path="/editorial" element={<EditorialPage />} />
-                <Route path="/home" element={<HomePage />} />
-                <Route path="/indexing" element={<IndexingPage />} />
-                <Route path="/publication" element={<PublicationPage />} />
-                <Route path="/submissions" element={<SubmissionsPage />} />
-                <Route path="/readers" element={<ReadersPage />} />
-                <Route path="/authors" element={<AuthorsPage />} />
-                <Route path="/librarian" element={<LibrarianPage />} />
-                <Route path='*' element={<NotFoundPage/>} />
+                {/* Публичные маршруты с layout */}
+                <Route
+                    path="/"
+                    element={
+                        <PublicLayout>
+                            <MainPage />
+                        </PublicLayout>
+                    }
+                />
+                <Route
+                    path="/announcements"
+                    element={
+                        <PublicLayout>
+                            <AnnouncementsPage />
+                        </PublicLayout>
+                    }
+                />
+                <Route path="/admin/login" element={<AdminLoginPage />} />
+                <Route
+                    path="/admin"
+                    element={
+                        <ProtectedRoute>
+                            <AdminMainPage />
+                        </ProtectedRoute>
+                    }
+                />
+                {/* 404 */}
+                <Route path="*" element={<PublicLayout><NotFoundPage /></PublicLayout>} />
             </Routes>
-          <div>
-               <SideBar />
-          </div>
-          </div>
-          <Footer />
-      </BrowserRouter>
-    </div>
-  );
+        </BrowserRouter>
+    );
 }
 
 export default App;

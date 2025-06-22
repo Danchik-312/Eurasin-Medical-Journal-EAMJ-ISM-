@@ -1,0 +1,50 @@
+/* AdminLoginPage.module.css */
+
+.form {
+    width: 320px;
+    margin: 100px auto;
+    padding: 30px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.input {
+    padding: 12px 15px;
+    font-size: 16px;
+    border: 1.5px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+.input:focus {
+    border-color: #4a90e2;
+    outline: none;
+}
+
+.button {
+    padding: 12px 0;
+    background-color: #4a90e2;
+    border: none;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #357ABD;
+}
+
+.error {
+    color: #d93025;
+    font-size: 14px;
+    margin-top: -10px;
+    font-weight: 600;
+}
