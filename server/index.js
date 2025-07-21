@@ -22,7 +22,7 @@ if (!fs.existsSync(uploadDir)) {
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => cb(null, uploadDir),
-    filename: (req, file, cb) => cb(null, `${Date.now()}-${file.originalname}`)
+    filename:    (req, file, cb) => cb(null, `${Date.now()}-${file.originalname}`)
 });
 
 const upload = multer({ storage });
@@ -50,8 +50,9 @@ app.get('/journals', async (req, res) => {
     }
 });
 
+// Новый маршрут: получить один журнал вместе со статьями
 app.get('/journals/:id', async (req, res) => {
-    const journalId = parseInt(req.params.id);
+    const journalId = parseInt(req.params.id, 10);
     if (isNaN(journalId)) {
         return res.status(400).json({ error: "Некорректный ID" });
     }
@@ -59,6 +60,15 @@ app.get('/journals/:id', async (req, res) => {
     try {
         const journal = await prisma.journal.findUnique({
             where: { id: journalId },
+            include: {
+                // подтягиваем связанные статьи
+                articles: {
+                    where: { status: 'approved' },    // только одобренные
+                    orderBy: {
+                        createdAt: 'asc'                // сортируем по дате создания
+                    }
+                }
+            }
         });
 
         if (!journal) {
@@ -67,12 +77,10 @@ app.get('/journals/:id', async (req, res) => {
 
         res.json(journal);
     } catch (err) {
-        console.error(err);
+        console.error('Ошибка при получении журнала:', err);
         res.status(500).json({ error: "Ошибка сервера" });
     }
-
 });
-
 
 // Публичный маршрут для получения всех одобренных статей
 app.get('/articles', async (req, res) => {
@@ -84,7 +92,7 @@ app.get('/articles', async (req, res) => {
         });
         res.json(articles);
     } catch (err) {
-        console.error(err);
+        console.error('Ошибка при получении статей:', err);
         res.status(500).json({ error: 'Ошибка при получении статей' });
     }
 });
@@ -96,9 +104,9 @@ app.get('/', (req, res) => {
         message: "Backend server is running",
         apiEndpoints: {
             submitArticle: "POST /submit-article",
-            getArticles: "GET /articles",
-            adminPanel: "/admin",
-            uploads: "/uploads/:filename"
+            getArticles:    "GET /articles",
+            adminPanel:     "/admin",
+            uploads:        "/uploads/:filename"
         }
     });
 });
@@ -106,7 +114,7 @@ app.get('/', (req, res) => {
 // Обработка 404
 app.use((req, res) => {
     res.status(404).json({
-        error: "Not found",
+        error:   "Not found",
         message: `Route ${req.method} ${req.path} does not exist`
     });
 });
