@@ -15,7 +15,7 @@ h1,h2,h3,h4,h5,h6{font-size: inherit; font-weight: inherit; margin: 0}
 ._container{max-width: 1160px;margin: 0 auto;padding: 0 15px; box-sizing: border-box}
 .page{flex: 1 1 auto;}
 
-.App {
+.layout {
     display: flex;
     flex-direction: column;
     min-height: 100vh;

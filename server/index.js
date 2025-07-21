@@ -34,6 +34,46 @@ app.use('/uploads', express.static(uploadDir));
 const adminRoutes = require('./routes/admin');
 app.use('/admin', adminRoutes);
 
+// Новый маршрут: получить все журналы
+app.get('/journals', async (req, res) => {
+    try {
+        const journals = await prisma.journal.findMany({
+            orderBy: [
+                { year: 'desc' },
+                { month: 'desc' },
+            ],
+        });
+        res.json(journals);
+    } catch (error) {
+        console.error('Ошибка при получении журналов:', error);
+        res.status(500).json({ error: 'Ошибка при получении журналов' });
+    }
+});
+
+app.get('/journals/:id', async (req, res) => {
+    const journalId = parseInt(req.params.id);
+    if (isNaN(journalId)) {
+        return res.status(400).json({ error: "Некорректный ID" });
+    }
+
+    try {
+        const journal = await prisma.journal.findUnique({
+            where: { id: journalId },
+        });
+
+        if (!journal) {
+            return res.status(404).json({ error: "Журнал не найден" });
+        }
+
+        res.json(journal);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: "Ошибка сервера" });
+    }
+
+});
+
+
 // Публичный маршрут для получения всех одобренных статей
 app.get('/articles', async (req, res) => {
     try {

@@ -18,6 +18,7 @@ import NotFoundPage from "./pages/notFoundPage/NotFoundPage";
 import ReadersPage from "./pages/readersPage/ReadersPage";
 import AuthorsPage from "./pages/authorsPage/AuthorsPage";
 import LibrarianPage from "./pages/librarianPage/LibrarianPage";
+import JournalPage from "./pages/journalPage/JournalPage";
 
 import AdminMainPage from "./pages/admin/adminMainPage/AdminMainPage";
 import AdminLoginPage from "./pages/admin/adminLoginPage/AdminLoginPage";
@@ -33,14 +34,14 @@ import AddArticle from "./pages/admin/addArticles/AddArticles";
 // Публичный layout
 function PublicLayout({ children }) {
     return (
-        <>
+        <div className="layout">
             <Header />
             <div className="_container flex">
                 {children}
                 <SideBar />
             </div>
             <Footer />
-        </>
+        </div>
     );
 }
 
@@ -53,6 +54,7 @@ function App() {
                 <Route path="/" element={<PublicLayout><MainPage /></PublicLayout>} />
                 <Route path="/announcements" element={<PublicLayout><AnnouncementsPage /></PublicLayout>} />
                 <Route path="/archives" element={<PublicLayout><ArchivesPage /></PublicLayout>} />
+                <Route path="/journals/:id" element={<PublicLayout><JournalPage /></PublicLayout>} />
                 <Route path="/contact" element={<PublicLayout><ContactPage /></PublicLayout>} />
                 <Route path="/current" element={<PublicLayout><CurrentPage /></PublicLayout>} />
                 <Route path="/editorial" element={<PublicLayout><EditorialPage /></PublicLayout>} />

@@ -2,50 +2,129 @@ import React, { useState, useContext } from 'react';
 import styles from "./AddJournal.module.css";
 import { AuthContext } from '../../../contexts/AuthContext';
 
+const monthOptions = [
+    { label: 'Январь', value: 1 },
+    { label: 'Февраль', value: 2 },
+    { label: 'Март', value: 3 },
+    { label: 'Апрель', value: 4 },
+    { label: 'Май', value: 5 },
+    { label: 'Июнь', value: 6 },
+    { label: 'Июль', value: 7 },
+    { label: 'Август', value: 8 },
+    { label: 'Сентябрь', value: 9 },
+    { label: 'Октябрь', value: 10 },
+    { label: 'Ноябрь', value: 11 },
+    { label: 'Декабрь', value: 12 },
+];
+
 const AddJournal = () => {
     const { token } = useContext(AuthContext);
 
     const [issue, setIssue] = useState('');
     const [year, setYear] = useState('');
     const [month, setMonth] = useState('');
+    const [description, setDescription] = useState('');
+    const [publicationDate, setPublicationDate] = useState('');
+    const [loading, setLoading] = useState(false);
+
+    const resetForm = () => {
+        setIssue('');
+        setYear('');
+        setMonth('');
+        setDescription('');
+        setPublicationDate('');
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        if (!issue || !year || !month) {
-            alert('Заполните все поля');
-            return;
-        }
 
         if (!token) {
             alert('Пожалуйста, войдите в систему');
             return;
         }
 
+        if (!issue || !year || !month || !publicationDate) {
+            alert('Пожалуйста, заполните все обязательные поля');
+            return;
+        }
+
+        const issueNum = Number(issue);
+        const yearNum = Number(year);
+        const monthNum = Number(month);
+
+        if (isNaN(issueNum) || isNaN(yearNum) || isNaN(monthNum)) {
+            alert('Issue, год и месяц должны быть числами');
+            return;
+        }
+
+        const currentYear = new Date().getFullYear();
+        if (yearNum < 1900 || yearNum > currentYear + 1) {
+            alert('Введите корректный год');
+            return;
+        }
+
+        const dateParts = publicationDate.split('.');
+        if (dateParts.length !== 3) {
+            alert('Неверный формат даты. Используйте DD.MM.YYYY');
+            return;
+        }
+
+        const [dayStr, monthStr, yearStr] = dateParts;
+        const day = Number(dayStr);
+        const pubMonth = Number(monthStr);
+        const pubYear = Number(yearStr);
+
+        if (
+            isNaN(day) || isNaN(pubMonth) || isNaN(pubYear) ||
+            pubMonth < 1 || pubMonth > 12 || day < 1 || day > 31
+        ) {
+            alert('Неверные значения даты');
+            return;
+        }
+
+        const pubDate = new Date(pubYear, pubMonth - 1, day);
+        if (isNaN(pubDate.getTime())) {
+            alert('Неверная дата публикации');
+            return;
+        }
+
+        const payload = {
+            issue: issueNum,
+            year: yearNum,
+            month: monthNum,
+            description: description.trim() || null,
+            publicationDate: pubDate.toISOString(),
+        };
+
+        console.log("📤 Отправка данных:", payload);
+
         try {
+            setLoading(true);
+
             const res = await fetch('http://localhost:3001/admin/journals', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                     Authorization: `Bearer ${token}`,
                 },
-                body: JSON.stringify({ issue, year, month }),
+                body: JSON.stringify(payload),
             });
 
+            const data = await res.json();
+
             if (!res.ok) {
-                const data = await res.json();
-                alert(`Ошибка: ${data.error}`);
+                const errorMessage = data.error || data.message || 'Неизвестная ошибка';
+                alert(`Ошибка: ${errorMessage}`);
                 return;
             }
 
-            const data = await res.json();
             alert(`Журнал добавлен! ID: ${data.id}`);
-            setIssue('');
-            setYear('');
-            setMonth('');
+            resetForm();
         } catch (err) {
-            alert('Ошибка сервера');
             console.error(err);
+            alert('Ошибка сервера');
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -76,19 +155,50 @@ const AddJournal = () => {
             </div>
 
             <div className={styles.formGroup}>
-                <label className={styles.label}>Месяц (1-12):</label>
-                <input
+                <label className={styles.label}>Месяц:</label>
+                <select
                     className={styles.input}
-                    type="number"
                     value={month}
                     onChange={e => setMonth(e.target.value)}
-                    min="1"
-                    max="12"
+                    required
+                >
+                    <option value="" disabled>Выберите месяц</option>
+                    {monthOptions.map((m) => (
+                        <option key={m.value} value={m.value}>{m.label}</option>
+                    ))}
+                </select>
+            </div>
+
+            <div className={styles.formGroup}>
+                <label className={styles.label}>Дата публикации:</label>
+                <input
+                    className={styles.input}
+                    type="text"
+                    value={publicationDate}
+                    onChange={e => setPublicationDate(e.target.value)}
+                    placeholder="Например: 20.07.2025"
                     required
                 />
             </div>
 
-            <button className={styles.button} type="submit">Добавить журнал</button>
+            <div className={styles.formGroup}>
+                <label className={styles.label}>Описание (необязательно):</label>
+                <textarea
+                    className={styles.textarea}
+                    value={description}
+                    onChange={e => setDescription(e.target.value)}
+                    rows={4}
+                    placeholder="Описание номера, темы выпуска и т.д."
+                />
+            </div>
+
+            <button
+                className={styles.button}
+                type="submit"
+                disabled={loading}
+            >
+                {loading ? 'Добавление...' : 'Добавить журнал'}
+            </button>
         </form>
     );
 };

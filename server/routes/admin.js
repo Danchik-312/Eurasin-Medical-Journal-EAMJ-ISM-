@@ -5,6 +5,7 @@ const multer = require('multer');
 const path = require('path');
 const { PrismaClient } = require('@prisma/client');
 const router = express.Router();
+// const authenticateAdmin = require("../middleware/authenticateAdmin");
 
 const prisma = new PrismaClient();
 
@@ -179,7 +180,7 @@ router.get('/journals', adminAuth, async (req, res) => {
 });
 
 router.post('/journals', adminAuth, async (req, res) => {
-    const { issue, year, month } = req.body;
+    const { issue, year, month, description, publicationDate } = req.body;
 
     // Простая валидация
     if (!issue || !year || !month || month < 1 || month > 12) {
@@ -192,6 +193,8 @@ router.post('/journals', adminAuth, async (req, res) => {
                 issue: Number(issue),
                 year: Number(year),
                 month: Number(month),
+                description: description ? description.trim() : null,
+                publicationDate: publicationDate ? new Date(publicationDate) : null,
             },
         });
 
@@ -202,5 +205,19 @@ router.post('/journals', adminAuth, async (req, res) => {
     }
 });
 
+router.delete('/journals/:id', adminAuth, async (req, res) => {
+    const journalId = parseInt(req.params.id, 10);
+
+    try {
+        await prisma.journal.delete({
+            where: { id: journalId },
+        });
+
+        res.status(200).json({ message: 'Журнал удалён' });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Не удалось удалить журнал' });
+    }
+});
 
 module.exports = router;

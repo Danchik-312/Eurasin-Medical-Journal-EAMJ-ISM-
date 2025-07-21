@@ -26,6 +26,31 @@ const JournalsTable = () => {
         fetchJournals();
     }, [token]);
 
+    const handleDelete = async (id) => {
+        const confirmDelete = window.confirm('Вы действительно хотите удалить журнал?');
+        if (!confirmDelete) return;
+
+        try {
+            const res = await fetch(`http://localhost:3001/admin/journals/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+
+            if (!res.ok) {
+                const data = await res.json();
+                throw new Error(data.error || 'Ошибка при удалении');
+            }
+
+            // Удаляем из локального состояния
+            setJournals(prev => prev.filter(j => j.id !== id));
+        } catch (err) {
+            console.error(err.message);
+            alert(`Ошибка: ${err.message}`);
+        }
+    };
+
     const filtered = journals.filter(j =>
         `${j.issue} ${j.year} ${j.month}`.toLowerCase().includes(search.toLowerCase())
     );
@@ -64,7 +89,12 @@ const JournalsTable = () => {
                             <td className={styles.td}>
                                 <div className={styles.actions}>
                                     <button className={styles.button}>Редактировать</button>
-                                    <button className={styles.button}>Удалить</button>
+                                    <button
+                                        className={styles.button}
+                                        onClick={() => handleDelete(journal.id)}
+                                    >
+                                        Удалить
+                                    </button>
                                 </div>
                             </td>
                         </tr>

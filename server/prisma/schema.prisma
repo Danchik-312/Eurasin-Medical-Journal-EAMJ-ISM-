@@ -26,14 +26,16 @@ model Admin {
 
 // Журналы
 model Journal {
-  id        Int       @id @default(autoincrement())
-  issue     Int       @unique // Уникальный номер журнала
-  year      Int
-  month     Int
-  createdAt DateTime  @default(now())
-  articles  Article[] // Статьи в журнале
+  id              Int       @id @default(autoincrement())
+  issue           Int       @unique
+  year            Int
+  month           Int
+  description     String?
+  createdAt       DateTime  @default(now())
+  articles        Article[]
+  publicationDate DateTime?
 
-  @@unique([issue, year]) // Комбинированная уникальность
+  @@unique([issue, year])
 }
 
 // Статьи
