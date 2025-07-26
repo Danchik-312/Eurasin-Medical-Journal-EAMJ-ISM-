@@ -52,7 +52,7 @@ const ArchivesPage = () => {
                     <div key={journal.id} className={styles.content__item}>
                         <Link to={`/journals/${journal.id}`} className={styles.item__img}>
                             <img
-                                src="https://www.ejbe.org/public/journals/1/cover_issue_40_en_US.jpg"
+                                src="/images/cover.jpg"
                                 alt={`Журнал ${journal.issue}`}
                             />
                         </Link>

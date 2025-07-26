@@ -61,7 +61,7 @@ const JournalPage = () => {
             <h1 className={styles.journal__title}>No. {journal.issue}, {journal.year}: {monthNames[journal.month]}</h1>
             <div className={styles.journal__heading}>
                 <img
-                    src={journal.coverUrl || "https://www.ejbe.org/public/journals/1/cover_issue_40_en_US.jpg"}
+                    src={"/images/cover.jpg"}
                     alt="Обложка журнала"
                     className={styles.heading__images}
                 />

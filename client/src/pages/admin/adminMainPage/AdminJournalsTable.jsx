@@ -88,7 +88,6 @@ const JournalsTable = () => {
                             <td className={styles.td}>{journal.month}</td>
                             <td className={styles.td}>
                                 <div className={styles.actions}>
-                                    <button className={styles.button}>Редактировать</button>
                                     <button
                                         className={styles.button}
                                         onClick={() => handleDelete(journal.id)}

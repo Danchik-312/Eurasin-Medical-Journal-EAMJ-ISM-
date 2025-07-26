@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import {Navigate, BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import SideBar from "./components/sideBar/SideBar";
@@ -51,7 +51,7 @@ function App() {
             <Routes>
 
                 {/* Публичные страницы */}
-                <Route path="/" element={<PublicLayout><MainPage /></PublicLayout>} />
+                <Route path="/" element={<PublicLayout><Navigate to="/current" replace/></PublicLayout>} />
                 <Route path="/announcements" element={<PublicLayout><AnnouncementsPage /></PublicLayout>} />
                 <Route path="/archives" element={<PublicLayout><ArchivesPage /></PublicLayout>} />
                 <Route path="/journals/:id" element={<PublicLayout><JournalPage /></PublicLayout>} />

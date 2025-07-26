@@ -2,9 +2,27 @@
     background-color: #CDCFD1;
 }
 
+.header__logo{
+    width: auto;
+}
+
+.logo__link{
+    display: inline-block;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    max-width: 700px;
+}
+
+.logo__images{
+    max-height: 80px;
+    width: 700px;
+    display: inline-block;
+}
+
 .header__menu{
     display: flex;
-    height: 200px;
+    height: 80px;
 }
 
 .menu__list{

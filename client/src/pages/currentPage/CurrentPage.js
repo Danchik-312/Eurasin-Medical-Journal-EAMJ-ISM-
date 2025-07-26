@@ -82,7 +82,7 @@ const CurrentPage = () => {
 
             <div className={styles.current__heading}>
                 <img
-                    src={journal.coverUrl || "https://www.ejbe.org/public/journals/1/cover_issue_40_en_US.jpg"}
+                    src={"/images/cover.jpg"}
                     className={styles.heading__images}
                     alt="cover"
                 />

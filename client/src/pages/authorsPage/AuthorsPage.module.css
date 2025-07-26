@@ -48,3 +48,17 @@
     margin: 20px 0;
     line-height: 25px;
 }
+
+.content__subtitle{
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    line-height: 25px;
+}
+
+.content__bold {
+    font-weight: bold;
+    line-height: 25px;
+    margin: 20px 0;
+}

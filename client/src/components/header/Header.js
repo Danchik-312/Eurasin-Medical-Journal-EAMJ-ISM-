@@ -1,13 +1,15 @@
 import React from 'react';
 import styles from './Header.module.css';
 import classes from 'classnames';
-import {NavLink} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 
 const Header = () => {
     return (
         <header className={classes(styles.header)}>
             <div className={classes(styles.header__container, '_container')}>
-                <div className={classes(styles.header__logo)}></div>
+                <div className={classes(styles.header__logo)}>
+                <Link to="/home" className={styles.logo__link}><img src="/images/Logo.jpg" alt="header" className={styles.logo__images}/></Link>
+                </div>
                 <nav className={classes(styles.header__menu)}>
                     <ul className={classes(styles.menu__list)}>
                         <li className={styles.menu__item}><NavLink to="/home" className={styles.menu__link}>Home</NavLink></li>

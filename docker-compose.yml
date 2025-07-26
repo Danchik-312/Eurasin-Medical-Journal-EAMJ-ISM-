@@ -1,35 +1,36 @@
-version: '3.8'
+version: "3.9"
 
 services:
-  db:
+  postgres:
     image: postgres:15
     environment:
       POSTGRES_USER: user
-      POSTGRES_PASSWORD: 2110
-      POSTGRES_DB: eamj
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: mydb
     volumes:
-      - pgdata:/var/lib/postgresql/data
-    ports:
-      - "5432:5432"
+      - postgres-data:/var/lib/postgresql/data
+    restart: always
 
-  backend:
-    build: ./server
-    ports:
-      - "3001:3001"
-    environment:
-      DATABASE_URL: "postgresql://user:2110@db:5432/eamj"
-      JWT_SECRET: "your_secret"
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
     depends_on:
-      - db
+      - postgres
+    environment:
+      DATABASE_URL: postgres://user:password@postgres:5432/mydb
+    expose:
+      - "3001"
 
   frontend:
-    build: ./client
-    ports:
-      - "3000:3000"
-    environment:
-      REACT_APP_API_URL: "http://backend:3001"
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
     depends_on:
-      - backend
+      - app
+    ports:
+      - "80:80"  # HTTP порт, можно заменить на 443 при наличии SSL
+    restart: always
 
 volumes:
-  pgdata:
+  postgres-data:

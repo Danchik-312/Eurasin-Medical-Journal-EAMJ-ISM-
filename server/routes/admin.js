@@ -114,6 +114,44 @@ router.post('/articles', adminAuth, upload.single('file'), async (req, res) => {
     }
 });
 
+/* ------------------ РЕДАКТИРОВАНИЕ СТАТЬИ ------------------ */
+
+router.put('/articles/:id', adminAuth, async (req, res) => {
+    const { title, authors, pages } = req.body;
+
+    try {
+        const updated = await prisma.article.update({
+            where: { id: Number(req.params.id) },
+            data: {
+                title,
+                authors,
+                pages,
+            },
+        });
+
+        res.json(updated);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Ошибка при обновлении статьи' });
+    }
+});
+
+/* ------------------ УДАЛЕНИЕ СТАТЬИ ------------------ */
+
+router.delete('/articles/:id', adminAuth, async (req, res) => {
+    const articleId = parseInt(req.params.id, 10);
+
+    try {
+        await prisma.article.delete({
+            where: { id: articleId },
+        });
+        res.status(200).json({ message: 'Статья удалена' });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Не удалось удалить статью' });
+    }
+});
+
 
 /* ------------------ ПОЛУЧИТЬ ВСЕ ОЖИДАЮЩИЕ СТАТЬИ ------------------ */
 router.get('/articles/pending', adminAuth, async (req, res) => {

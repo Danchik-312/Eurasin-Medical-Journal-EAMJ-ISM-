@@ -1,0 +1,14 @@
+FROM node:18
+
+WORKDIR /app
+
+COPY server/package*.json ./
+RUN npm install
+
+COPY server/ .
+COPY prisma ../prisma
+RUN npx prisma generate
+
+EXPOSE 3001
+
+CMD ["node", "index.js"]
