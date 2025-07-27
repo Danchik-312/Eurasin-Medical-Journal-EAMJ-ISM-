@@ -12,7 +12,7 @@ const ArticlesTable = () => {
 
     const fetchArticles = async () => {
         try {
-            const response = await fetch('http://localhost:3001/admin/articles', {
+            const response = await fetch('http://localhost:3001/api/admin/articles', {
                 headers: { Authorization: `Bearer ${token}` },
             });
             if (!response.ok) throw new Error('Ошибка при загрузке статей');
@@ -32,7 +32,7 @@ const ArticlesTable = () => {
     const handleDelete = async (id) => {
         if (!window.confirm('Удалить статью?')) return;
         try {
-            const res = await fetch(`http://localhost:3001/admin/articles/${id}`, {
+            const res = await fetch(`http://localhost:3001/api/admin/articles/${id}`, {
                 method: 'DELETE',
                 headers: { Authorization: `Bearer ${token}` },
             });
@@ -50,7 +50,7 @@ const ArticlesTable = () => {
 
     const handleSave = async () => {
         try {
-            const res = await fetch(`http://localhost:3001/admin/articles/${editingArticle.id}`, {
+            const res = await fetch(`http://localhost:3001/api/admin/articles/${editingArticle.id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

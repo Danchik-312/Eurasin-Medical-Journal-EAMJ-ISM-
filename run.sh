@@ -4,4 +4,4 @@ npm run dev &
 
 # Запуск фронтенда
 cd ../client
-npm run
+npm start

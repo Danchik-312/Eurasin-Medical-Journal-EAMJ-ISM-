@@ -16,7 +16,7 @@ const CurrentPage = () => {
         const fetchLatest = async () => {
             try {
                 // Получаем список всех журналов, отсортированных по году и месяцу (desc) на бэкенде
-                const resList = await fetch("http://localhost:3001/journals");
+                const resList = await fetch("http://localhost:3001/api/journals");
                 if (!resList.ok) throw new Error("Ошибка при получении списка журналов");
                 const list = await resList.json();
 
@@ -26,7 +26,7 @@ const CurrentPage = () => {
                 }
 
                 const latestId = list[0].id;
-                const resJournal = await fetch(`http://localhost:3001/journals/${latestId}`);
+                const resJournal = await fetch(`http://localhost:3001/api/journals/${latestId}`);
                 if (!resJournal.ok) throw new Error("Ошибка при получении последнего журнала");
                 const data = await resJournal.json();
 

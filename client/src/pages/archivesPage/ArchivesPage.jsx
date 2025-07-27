@@ -18,7 +18,7 @@ const ArchivesPage = () => {
     useEffect(() => {
         const fetchJournals = async () => {
             try {
-                const res = await fetch("http://localhost:3001/journals");
+                const res = await fetch("http://localhost:3001/api/journals");
                 const data = await res.json();
                 console.log("JOURNALS DATA:", data); // ← Смотри в консоли браузера
                 setJournals(data);

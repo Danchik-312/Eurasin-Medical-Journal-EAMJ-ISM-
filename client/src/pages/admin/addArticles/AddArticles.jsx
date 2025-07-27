@@ -20,7 +20,7 @@ const AddArticle = () => {
             return;
         }
 
-        fetch('http://localhost:3001/admin/journals', {
+        fetch('http://localhost:3001/api/admin/journals', {
             headers: {
                 Authorization: `Bearer ${token}`,
             },
@@ -58,7 +58,7 @@ const AddArticle = () => {
         if (file) formData.append('file', file);
 
         try {
-            const res = await fetch('http://localhost:3001/admin/articles', {
+            const res = await fetch('http://localhost:3001/api/admin/articles', {
                 method: 'POST',
                 headers: {
                     Authorization: `Bearer ${token}`,

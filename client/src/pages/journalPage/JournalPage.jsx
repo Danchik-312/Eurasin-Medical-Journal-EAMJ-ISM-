@@ -16,7 +16,7 @@ const JournalPage = () => {
     useEffect(() => {
         const fetchJournal = async () => {
             try {
-                const res = await fetch(`http://localhost:3001/journals/${id}`);
+                const res = await fetch(`http://localhost:3001/api/journals/${id}`);
                 if (!res.ok) throw new Error("Ошибка загрузки");
                 const data = await res.json();
                 setJournal(data);
@@ -80,7 +80,7 @@ const JournalPage = () => {
                                     <p className={styles.subtitle__page}>{article.pages}</p>
                                 </div>
                                 <a
-                                    href={`http://localhost:3001${article.fileUrl}`}
+                                    href={`http://localhost:3001/api${article.fileUrl}`}
                                     download
                                     target="_blank"
                                     rel="noopener noreferrer"

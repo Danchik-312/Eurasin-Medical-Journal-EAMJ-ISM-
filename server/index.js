@@ -28,14 +28,14 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 // Статика для загрузок
-app.use('/uploads', express.static(uploadDir));
+app.use('/api/uploads', express.static(uploadDir));
 
 // Подключение роутов для админки
 const adminRoutes = require('./routes/admin');
-app.use('/admin', adminRoutes);
+app.use('/api/admin', adminRoutes);
 
 // Новый маршрут: получить все журналы
-app.get('/journals', async (req, res) => {
+app.get('/api/journals', async (req, res) => {
     try {
         const journals = await prisma.journal.findMany({
             orderBy: [
@@ -51,7 +51,7 @@ app.get('/journals', async (req, res) => {
 });
 
 // Новый маршрут: получить один журнал вместе со статьями
-app.get('/journals/:id', async (req, res) => {
+app.get('/api/journals/:id', async (req, res) => {
     const journalId = parseInt(req.params.id, 10);
     if (isNaN(journalId)) {
         return res.status(400).json({ error: "Некорректный ID" });
@@ -83,7 +83,7 @@ app.get('/journals/:id', async (req, res) => {
 });
 
 // Публичный маршрут для получения всех одобренных статей
-app.get('/articles', async (req, res) => {
+app.get('/api/articles', async (req, res) => {
     try {
         const articles = await prisma.article.findMany({
             where: { status: 'approved' },
@@ -97,7 +97,6 @@ app.get('/articles', async (req, res) => {
     }
 });
 
-// Пример корневого роута
 app.get('/', (req, res) => {
     res.json({
         status: "success",
