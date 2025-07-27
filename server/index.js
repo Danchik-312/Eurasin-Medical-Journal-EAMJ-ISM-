@@ -14,33 +14,34 @@ const PORT = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json());
 
-// Настройка загрузок
+// Настройка multer
 const uploadDir = path.join(__dirname, 'uploads');
 if (!fs.existsSync(uploadDir)) {
     fs.mkdirSync(uploadDir, { recursive: true });
 }
+
 const storage = multer.diskStorage({
     destination: (req, file, cb) => cb(null, uploadDir),
     filename:    (req, file, cb) => cb(null, `${Date.now()}-${file.originalname}`)
 });
+
 const upload = multer({ storage });
 
-// Подключение маршрутов
+// Статика для загрузок
+app.use('/uploads', express.static(uploadDir));
+
+// Подключение роутов для админки
 const adminRoutes = require('./routes/admin');
+app.use('/admin', adminRoutes);
 
-// ==== API ROUTES ==== //
-
-// Файлы
-app.use('/api/uploads', express.static(uploadDir));
-
-// Админка
-app.use('/api/admin', adminRoutes);
-
-// Получить все журналы
-app.get('/api/journals', async (req, res) => {
+// Новый маршрут: получить все журналы
+app.get('/journals', async (req, res) => {
     try {
         const journals = await prisma.journal.findMany({
-            orderBy: [{ year: 'desc' }, { month: 'desc' }],
+            orderBy: [
+                { year: 'desc' },
+                { month: 'desc' },
+            ],
         });
         res.json(journals);
     } catch (error) {
@@ -49,8 +50,8 @@ app.get('/api/journals', async (req, res) => {
     }
 });
 
-// Получить один журнал и его статьи
-app.get('/api/journals/:id', async (req, res) => {
+// Новый маршрут: получить один журнал вместе со статьями
+app.get('/journals/:id', async (req, res) => {
     const journalId = parseInt(req.params.id, 10);
     if (isNaN(journalId)) {
         return res.status(400).json({ error: "Некорректный ID" });
@@ -60,9 +61,12 @@ app.get('/api/journals/:id', async (req, res) => {
         const journal = await prisma.journal.findUnique({
             where: { id: journalId },
             include: {
+                // подтягиваем связанные статьи
                 articles: {
-                    where: { status: 'approved' },
-                    orderBy: { createdAt: 'asc' }
+                    where: { status: 'approved' },    // только одобренные
+                    orderBy: {
+                        createdAt: 'asc'                // сортируем по дате создания
+                    }
                 }
             }
         });
@@ -78,8 +82,8 @@ app.get('/api/journals/:id', async (req, res) => {
     }
 });
 
-// Получить все одобренные статьи
-app.get('/api/articles', async (req, res) => {
+// Публичный маршрут для получения всех одобренных статей
+app.get('/articles', async (req, res) => {
     try {
         const articles = await prisma.article.findMany({
             where: { status: 'approved' },
@@ -93,40 +97,29 @@ app.get('/api/articles', async (req, res) => {
     }
 });
 
-// Корневой API-маршрут
-app.get('/api', (req, res) => {
+// Пример корневого роута
+app.get('/', (req, res) => {
     res.json({
         status: "success",
-        message: "API работает",
-        endpoints: {
-            getArticles: "GET /api/articles",
-            getJournals: "GET /api/journals",
-            getJournalById: "GET /api/journals/:id",
-            uploads: "/api/uploads/:file",
-            admin: "/api/admin"
+        message: "Backend server is running",
+        apiEndpoints: {
+            submitArticle: "POST /submit-article",
+            getArticles:    "GET /articles",
+            adminPanel:     "/admin",
+            uploads:        "/uploads/:filename"
         }
     });
 });
 
-// ==== CLIENT SPA FALLBACK (если нужен) ==== //
-// Если ты запускаешь фронт отдельно через NGINX, можно отключить это
-const frontendPath = path.join(__dirname, '..', 'client', 'build');
-if (fs.existsSync(frontendPath)) {
-    app.use(express.static(frontendPath));
-    app.get('*', (req, res) => {
-        res.sendFile(path.join(frontendPath, 'index.html'));
-    });
-}
-
-// 404 обработчик
+// Обработка 404
 app.use((req, res) => {
     res.status(404).json({
-        error: "Not Found",
-        message: `Route ${req.method} ${req.originalUrl} not found`
+        error:   "Not found",
+        message: `Route ${req.method} ${req.path} does not exist`
     });
 });
 
 // Запуск сервера
 app.listen(PORT, () => {
-    console.log(`✅ Server running at http://localhost:${PORT}`);
+    console.log(`Server running on http://localhost:${PORT}`);
 });
