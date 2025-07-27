@@ -10,7 +10,7 @@ const JournalsTable = () => {
     useEffect(() => {
         const fetchJournals = async () => {
             try {
-                const res = await fetch('http://localhost:3001/api/admin/journals', {
+                const res = await fetch(`${process.env.REACT_APP_API_URL}/admin/journals`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
@@ -31,7 +31,7 @@ const JournalsTable = () => {
         if (!confirmDelete) return;
 
         try {
-            const res = await fetch(`http://localhost:3001/api/admin/journals/${id}`, {
+            const res = await fetch(`${process.env.REACT_APP_API_URL}/admin/journals/${id}`, {
                 method: 'DELETE',
                 headers: {
                     Authorization: `Bearer ${token}`,

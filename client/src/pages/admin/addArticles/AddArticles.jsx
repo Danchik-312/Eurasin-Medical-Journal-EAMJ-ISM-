@@ -58,7 +58,7 @@ const AddArticle = () => {
         if (file) formData.append('file', file);
 
         try {
-            const res = await fetch('http://localhost:3001/api/admin/articles', {
+            const res = await fetch(`${process.env.REACT_APP_API_URL}/admin/articles`, {
                 method: 'POST',
                 headers: {
                     Authorization: `Bearer ${token}`,

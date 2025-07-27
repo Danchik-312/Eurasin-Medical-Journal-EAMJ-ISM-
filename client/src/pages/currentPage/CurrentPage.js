@@ -16,7 +16,7 @@ const CurrentPage = () => {
         const fetchLatest = async () => {
             try {
                 // Получаем список всех журналов, отсортированных по году и месяцу (desc) на бэкенде
-                const resList = await fetch("http://localhost:3001/api/journals");
+                const resList = await fetch(`${process.env.REACT_APP_API_URL}/journals`);
                 if (!resList.ok) throw new Error("Ошибка при получении списка журналов");
                 const list = await resList.json();
 
@@ -26,7 +26,7 @@ const CurrentPage = () => {
                 }
 
                 const latestId = list[0].id;
-                const resJournal = await fetch(`http://localhost:3001/api/journals/${latestId}`);
+                const resJournal = await fetch(`${process.env.REACT_APP_API_URL}/journals/${latestId}`);
                 if (!resJournal.ok) throw new Error("Ошибка при получении последнего журнала");
                 const data = await resJournal.json();
 
@@ -106,7 +106,7 @@ const CurrentPage = () => {
                                         <p className={styles.subtitle__page}>{article.pages}</p>
                                     </div>
                                     <a
-                                        href={`http://localhost:3001${article.fileUrl}`}
+                                        href={`${process.env.REACT_APP_API_URL}${article.fileUrl}`}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className={styles.link__down}

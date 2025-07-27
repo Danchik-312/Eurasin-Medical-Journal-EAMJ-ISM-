@@ -8,7 +8,7 @@ const SubmittedArticles = () => {
     useEffect(() => {
         const token = localStorage.getItem('token');
 
-        fetch('http://localhost:3001/api/admin/articles/pending', {
+        fetch(`${process.env.REACT_APP_API_URL}/admin/articles/pending`, {
             headers: {
                 Authorization: `Bearer ${token}`,
             },

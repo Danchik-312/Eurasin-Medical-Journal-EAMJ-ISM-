@@ -101,7 +101,7 @@ const AddJournal = () => {
         try {
             setLoading(true);
 
-            const res = await fetch('http://localhost:3001/api/admin/journals', {
+            const res = await fetch(`${process.env.REACT_APP_API_URL}/admin/journals`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
