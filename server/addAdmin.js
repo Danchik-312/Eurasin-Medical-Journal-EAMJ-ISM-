@@ -4,8 +4,8 @@ const bcrypt = require('bcrypt');
 const prisma = new PrismaClient();
 
 async function main() {
-    const email = 'itznastya@icloud.com';
-    const plainPassword = 'maskEnot';
+    const email = 'eamjism@gmail.com';
+    const plainPassword = '1234';
 
     // Хешируем пароль
     const hashedPassword = await bcrypt.hash(plainPassword, 10);

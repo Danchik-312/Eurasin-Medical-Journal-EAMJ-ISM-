@@ -2,10 +2,8 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const multer = require('multer');
-const path = require('path');
 const { PrismaClient } = require('@prisma/client');
 const router = express.Router();
-// const authenticateAdmin = require("../middleware/authenticateAdmin");
 
 const prisma = new PrismaClient();
 
@@ -41,7 +39,7 @@ const upload = multer({ storage });
 
 /* ------------------ РЕГИСТРАЦИЯ АДМИНА ------------------ */
 router.post('/register', async (req, res) => {
-    const { email, password } = req.body;
+    const { email, password, name, position } = req.body;
 
     try {
         const existing = await prisma.admin.findUnique({ where: { email } });
@@ -49,7 +47,7 @@ router.post('/register', async (req, res) => {
 
         const hashed = await bcrypt.hash(password, 10);
         const admin = await prisma.admin.create({
-            data: { email, password: hashed },
+            data: { email, password: hashed, name, position },
         });
 
         res.status(201).json({ message: 'Админ создан', id: admin.id });
@@ -70,15 +68,46 @@ router.post('/login', async (req, res) => {
         if (!valid) return res.status(401).json({ error: 'Неверный пароль' });
 
         const token = jwt.sign(
-            { adminId: admin.id, email: admin.email, role: 'admin' },
+            {
+                adminId: admin.id,
+                email: admin.email,
+                role: 'admin',
+                name: admin.name,
+                position: admin.position,
+            },
             process.env.JWT_SECRET,
             { expiresIn: '1d' }
         );
 
-        res.json({ token });
+        res.json({
+            token,
+            name: admin.name,
+            position: admin.position,
+        });
     } catch (err) {
         console.error(err);
         res.status(500).json({ error: 'Ошибка входа' });
+    }
+});
+
+/* ------------------ ПРОФИЛЬ АДМИНА ------------------ */
+router.get('/adminProfile', adminAuth, async (req, res) => {
+    try {
+        const admin = await prisma.admin.findUnique({
+            where: { id: req.admin.adminId },
+            select: {
+                id: true,
+                email: true,
+                name: true,
+                position: true,
+                createdAt: true,
+            },
+        });
+        if (!admin) return res.status(404).json({ error: 'Админ не найден' });
+        res.json(admin);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Ошибка при получении профиля' });
     }
 });
 
@@ -99,7 +128,7 @@ router.post('/articles', adminAuth, upload.single('file'), async (req, res) => {
                 pages,
                 fileUrl,
                 status: 'approved',
-                description: description || '', // 💡 чтобы не было ошибки
+                description: description || '',
                 journal: {
                     connect: {
                         id: Number(journalId),
@@ -115,7 +144,6 @@ router.post('/articles', adminAuth, upload.single('file'), async (req, res) => {
 });
 
 /* ------------------ РЕДАКТИРОВАНИЕ СТАТЬИ ------------------ */
-
 router.put('/articles/:id', adminAuth, async (req, res) => {
     const { title, authors, pages } = req.body;
 
@@ -137,7 +165,6 @@ router.put('/articles/:id', adminAuth, async (req, res) => {
 });
 
 /* ------------------ УДАЛЕНИЕ СТАТЬИ ------------------ */
-
 router.delete('/articles/:id', adminAuth, async (req, res) => {
     const articleId = parseInt(req.params.id, 10);
 
@@ -151,7 +178,6 @@ router.delete('/articles/:id', adminAuth, async (req, res) => {
         res.status(500).json({ error: 'Не удалось удалить статью' });
     }
 });
-
 
 /* ------------------ ПОЛУЧИТЬ ВСЕ ОЖИДАЮЩИЕ СТАТЬИ ------------------ */
 router.get('/articles/pending', adminAuth, async (req, res) => {
@@ -217,10 +243,10 @@ router.get('/journals', adminAuth, async (req, res) => {
     }
 });
 
+/* ------------------ ДОБАВЛЕНИЕ ЖУРНАЛА ------------------ */
 router.post('/journals', adminAuth, async (req, res) => {
     const { issue, year, month, description, publicationDate } = req.body;
 
-    // Простая валидация
     if (!issue || !year || !month || month < 1 || month > 12) {
         return res.status(400).json({ error: 'Укажите issue, year и корректный month (1-12)' });
     }
@@ -243,6 +269,38 @@ router.post('/journals', adminAuth, async (req, res) => {
     }
 });
 
+/* ------------------ РЕДАКТИРОВАНИЕ ЖУРНАЛА ------------------ */
+router.put('/journals/:id', adminAuth, async (req, res) => {
+    const journalId = Number(req.params.id);
+    const { issue, year, month, description, publicationDate } = req.body;
+
+    if (!issue || !year || !month || month < 1 || month > 12) {
+        return res.status(400).json({ error: 'Укажите issue, year и корректный month (1-12)' });
+    }
+
+    try {
+        const updatedJournal = await prisma.journal.update({
+            where: { id: journalId },
+            data: {
+                issue: Number(issue),
+                year: Number(year),
+                month: Number(month),
+                description: description ? description.trim() : null,
+                publicationDate: publicationDate ? new Date(publicationDate) : null,
+            },
+        });
+        res.json(updatedJournal);
+    } catch (err) {
+        console.error(err);
+        if (err.code === 'P2025') {
+            res.status(404).json({ error: 'Журнал не найден' });
+        } else {
+            res.status(500).json({ error: 'Ошибка при обновлении журнала' });
+        }
+    }
+});
+
+/* ------------------ УДАЛЕНИЕ ЖУРНАЛА ------------------ */
 router.delete('/journals/:id', adminAuth, async (req, res) => {
     const journalId = parseInt(req.params.id, 10);
 
