@@ -20,7 +20,7 @@ const AddArticle = () => {
             return;
         }
 
-        fetch('http://localhost:3001/api/admin/journals', {
+        fetch(`${process.env.REACT_APP_API_URL}/admin/journals`, {
             headers: {
                 Authorization: `Bearer ${token}`,
             },
